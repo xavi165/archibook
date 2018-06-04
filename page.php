@@ -82,7 +82,9 @@ if(isset($_GET['id']) /*AND $_GET['id'] > '0'*/) {
                     <img src= "http://localhost:8888/archibook-master/img/logoisep.png" width='180px' align='center' alt="Logo entreprise"/>
                 </td>
                 <td width='50%' align='right' color="red">
-                    <input type="button" value="Se déconnecter" onClick="deconnexion.php"/>
+                    <a href="deconnexion.php">
+                       <input type="button" value="Se déconnecter"/>
+                    </a>
                 </td>
             </tr>
         

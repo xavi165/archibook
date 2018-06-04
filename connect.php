@@ -1,11 +1,6 @@
-
 <?php
 session_start();
-
-
-
 if(isset($_POST['formconnexion'])) {
-
 $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
    $mdpconnect = htmlspecialchars($_POST['mdpconnect']);
@@ -18,14 +13,11 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');
          $_SESSION['id'] = $userinfo['id'];
          $_SESSION['username'] = $userinfo['username'];
          $_SESSION['mail'] = $userinfo['mail'];
-
          header("Location: page.php?id=".$_SESSION['id']);
       } else {
          $erreur = "Mauvais mail ou mot de passe !";
       }
-   } else {
-      $erreur = "Tous les champs doivent être complétés !";
-   }
+   } 
 }
 ?>
 
@@ -48,8 +40,10 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');
         
     </table>
       </header> 
-    <div class='box' align =center>
-      <div align="center">
+       <div align="center">
+       <div style="width: 300px; padding-top: 15px; padding-bottom: 15px; border: 3px solid #1B019B; text-align: center; background: white;border-radius: 10px;" align='center'>
+           
+      
          <h1>Connexion à Archibook !</h1>
         <h3><I>Connectez-vous avec les ID de votre école</I></h3>
          
@@ -58,7 +52,8 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');
             <input type="password" name="mdpconnect" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
             <br /><br />
              
-            <input style='margin-left:83px' type="submit" name="formconnexion" value="Se connecter !" background='#22427C' width=100px class="btn"/>
+            
+             <input type="submit" name='formconnexion' value="Se connecter!" style="border: solid 2px #1B019B; padding:10px 3px 10px 3px; border-radius:8px; background:'white'; font:bold 13px Arial; color:#1B019B;" />
          </form>
 
           
@@ -71,8 +66,8 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');
       </div>
     </div>
    </body>
-    <footer align="left" color = 'black'>
-            <p><I>Archibook</I></p>
+    <footer align="left">
+        <p style="color='red';"><I>Archibook</I></p>
         <p style="text-align:right"><a href="">Conditions d'utilisation</a>
         </p>
     </footer>

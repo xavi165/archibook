@@ -4,7 +4,7 @@
 
 
 if(isset($_GET['id']) /*AND $_GET['id'] > '0'*/) {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');    
+   $bdd = new PDO('mysql:host=localhost:8889;dbname=archibook', 'root', 'root');    
    $getid = intval($_GET['id']);
    $requser = $bdd->prepare('SELECT * FROM utilisateur WHERE id = ?');
    $requser->execute(array($getid));
@@ -69,28 +69,31 @@ if(isset($_GET['id']) /*AND $_GET['id'] > '0'*/) {
 ;
 
 ?>
-<html>  
+<html>
+<link href="style.css" rel='stylesheet' type='text/css'>
    <head>
       <title>Archibook - Votre profil</title>
       <meta charset="utf-8">
    </head>
    <body>
        <header>
-    <table align="center">
+    <table>
             <tr>
-                <td width='70%' align='left'>
+                <td width='100%' align='left'>
                     <img src= "http://localhost:8888/archibook-master/img/logoisep.png" width='180px' align='center' alt="Logo entreprise"/>
                 </td>
-                <td width='50%' align='right' color="red">
+                
+                <td width='100%' align='right'>
                     <a href="deconnexion.php">
-                       <input type="button" value="Se déconnecter"/>
+                       <input type="button" value="Se déconnecter" style="border: solid 2px #919191; padding:10px 3px 10px 3px; border-radius:8px; background:'white'; font:bold 13px Arial; color:#1B019B;" />
                     </a>
                 </td>
             </tr>
         
     </table>
       </header> 
-    <div class="box"> 
+    <div align="center"> 
+    <div style="width: 500px; padding-top: 15px; padding-bottom: 15px; border: 3px solid #1B019B; text-align: center; background: white;border-radius: 10px;" align='center'>
        <table align="center">
             
             <tr>
@@ -136,7 +139,12 @@ if(isset($_GET['id']) /*AND $_GET['id'] > '0'*/) {
             </tr>
        </table>
     </div>
-       
+    </div>
+    <footer align="left">
+            <p style="color='red';"><I>Archibook</I></p>
+        <p style="text-align:right;"><a href="">Conditions d'utilisation</a>
+        </p>
+    </footer>   
    </body>
 </html>
 <?php   
